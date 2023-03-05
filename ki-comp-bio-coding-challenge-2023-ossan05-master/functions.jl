@@ -19,7 +19,7 @@ end
 function Q2_Translation(inp::String)
     m = floor(Int, length(inp) / 3)
     res = ""
-    LIST = Dict("A" => ["GCT", "GCC", "GCA", "GCG"],
+    d = Dict("A" => ["GCT", "GCC", "GCA", "GCG"],
     "R" => ["CGT", "CGC", "CGA", "CGG", "AGA", "AGG"],
     "N" => ["AAT", "AAC"],
     "D" => ["GAT", "GAC"],
@@ -43,7 +43,7 @@ function Q2_Translation(inp::String)
     for i in range(start = 1, stop = m, step=1)
         x = String(inp[begin:3])  
         inp = String(inp[4:end])
-        for (j, l) in LIST
+        for (j, l) in d
             if x in l  
                 res = res * j
             end

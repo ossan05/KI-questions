@@ -1,19 +1,21 @@
 function Q4_Biggest_Product(inp::Vector{<:Number})
     n, xl = [], []
     x = 1
+    b = sort(inp, rev=true)
 
-    for (i, j) in enumerate(inp)
-        if j > 1
-            push!(n, i)
+    for i in b
+        if i > 1
+            push!(n, findall(x -> x == i, inp))
         end
     end
+    t = sort(collect(unique(Iterators.flatten(n))))
 
-    for i in range(start = 2, stop = length(n), step = 1)
-        for j in inp[n[i - 1]:n[i] - 1]
+    for i in range(start=2, stop=length(t), step=1)
+        for j in inp[t[i - 1]:t[i] - 1]
             x *= j
         end
         if x > 1
-            push!(xl, [n[i - 1], n[i]])
+            push!(xl, [t[i - 1], t[i]])
         end
         x = 1
     end
