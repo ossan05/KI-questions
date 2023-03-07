@@ -1,6 +1,6 @@
-import random
-
-n, D, len = split(readline(), ", ")
+n = 4
+D = 4
+len = 4
 
 c = "GCAT"
 barcode = ""
@@ -8,9 +8,9 @@ res = []
 
 for i in 1:n
     for i in 1:len
-        barcode *= c[rand(1:4)]
+        global barcode * c[rand(1:4)]
     end
-    push!(res, x)
+    push!(res, barcode)
     barcode = ""
 end
 
