@@ -1,0 +1,7 @@
+using CSV, DataFrames
+
+# read CSV file into a DataFrame
+X = CSV.read("julia/distances.csv", DataFrame)
+
+# convert DataFrame to matrix
+data = Matrix{Float64}(X)
