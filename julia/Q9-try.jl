@@ -3,15 +3,17 @@ D = 4
 len = 4
 
 c = "GCAT"
-barcode = ""
 res = []
 
 for i in 1:n
+    barcode = ""
+    prev = 0
     for i in 1:len
-        global barcode * c[rand(1:4)]
+        lim = deleteat!(collect(c), findall(x->x==prev,collect(c)))
+        prev = lim[rand(1:length(lim))]
+        barcode *= prev
     end
     push!(res, barcode)
-    barcode = ""
 end
 
 println(res)
