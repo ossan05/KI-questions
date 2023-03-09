@@ -1,0 +1,64 @@
+import math
+
+A = [-5, 9, -3, -2, -9, -2, 2, 11, -1, -4, -10, 21]
+B = [-4, -4, -2, -9, -2, 8, 3, 10, -2, -3, -9]
+A_ind = []
+B_ind = []
+
+deletions = 0
+score = 0
+scores = []
+
+while len(A) > len(B):
+    for i in range(len(A)):
+        newlist = A[:i] + A[i+1:]
+        for suck, dick in zip(newlist, B):
+            score += (suck - dick)**2 
+        scores.append(score)
+        score = 0
+    del A[scores.index(min(scores))]
+    A_ind.append(scores.index(min(scores)))
+    deletions += 1
+    prev_value = min(scores) + deletions
+    scores = []
+    print(A)
+
+while len(B) > len(A):
+    for i in range(len(B)):
+        newlist = B[:i] + B[i+1:]
+        for suck, dick in zip(newlist, B):
+            score += (suck - dick)**2
+        scores.append(score)
+        score = 0 
+    del B[scores.index(min(scores))]
+    B_ind.append(scores.index(min(scores)))
+    deletions += 1
+    prev_value = min(scores) + deletions
+    scores = []
+    print(B)
+
+
+while True:
+    for i in range(len(A)):
+        new_a = A[:i] + A[i+1:]
+        for j in range(len(B)):
+            new_b = B[:j] + B[j+1:]
+            for x, y in zip(new_a, new_b):
+                score += (x - y)**2
+            scores.append(score)
+            score = 0
+    print(scores)
+    print(min(scores))
+    print(scores.index(min(scores)))
+    if prev_value >= min(scores):
+        A_ind = math.floor((scores.index(min(scores)) + 1) / 12) 
+        B_ind = (scores.index(min(scores)) + 1) - A_ind * 12
+        print(A_ind, B_ind)
+        del A[A_ind]
+        del B[B_ind]
+        prev_value = min(scores)
+        print("yes")
+    else:
+        break
+
+print(A, B)
