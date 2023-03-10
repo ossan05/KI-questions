@@ -4,13 +4,13 @@ using CSV, DataFrames
 X = CSV.read("julia/distances.csv", DataFrame)
 
 # convert DataFrame to matrix
-data = Matrix{Float64}(X)
+data = Matrix(X)
 
-# loop through upper triangular part of matrix and convert String elements to Float64
-for i in 1:1722
+for i in 1:1721
     for j in 1:1722
         if isa(data[i, j], String)
-            data[i, j] = parse(BigFloat, df[i, j])
+            # data[i, j] = parse({Float64}, df[i, j])
+            println(data[i, j])
         end
     end
 end
