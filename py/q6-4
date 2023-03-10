@@ -6,7 +6,7 @@ pairs_A, pot_pairs_A = [], []
 
 for count_a, ele_a in enumerate(A):
     for count_b, ele_b in enumerate(B):
-        pot_pairs_A.append([abs(count_b - count_a) + (ele_a - ele_b)**2, count_b - count_a])
+        pot_pairs_A.append(abs(count_b - count_a) + (ele_a - ele_b)**2)
     pair = min(pot_pairs_A)
     pot_pairs_A = []
     pairs_A.append(pair)
@@ -16,7 +16,7 @@ pairs_B, pot_pairs_B = [], []
 
 for count_b, ele_b in enumerate(B):
     for count_a, ele_a in enumerate(A):
-        pot_pairs_B.append([abs(count_b - count_a) + (ele_a - ele_b)**2, count_a - count_b])
+        pot_pairs_B.append(abs(count_b - count_a) + (ele_a - ele_b)**2)
     pair = min(pot_pairs_B)
     pot_pairs_B = []
     pairs_B.append(pair)
