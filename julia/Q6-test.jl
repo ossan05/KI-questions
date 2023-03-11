@@ -6,6 +6,7 @@ groups = []
 x = 1
 y = 1
 while x <= length(A)
+    for i in 1:
     if abs(A[x] - B[y]) < 2
         push!(groups, [x, y])
         global x += 1
