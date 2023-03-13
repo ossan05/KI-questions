@@ -93,7 +93,7 @@ end
 function Q5_Data_dumpster_diving()
     #Text only answer. Modify the obviously incorrect answer inside the return statement below.
     #Feel free to add as much explanation as you think you need, but make sure it all gets returned as one string.
-    return "The 1722 elements are all cats. Element 430 is a Norwegian Forest Cat"
+    return "The 1722 elements make a map representing the world population. Each element is a dot on the map and correspond to a certain amount of people."
 end
 
 function Q6_Array_yeet(array_input_1::Vector{<:Number},array_input_2::Vector{<:Number})
