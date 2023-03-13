@@ -1,12 +1,17 @@
-using CSV, DataFrames, MultivariateStats, RDatasets, Plots
+using CSV, DataFrames, MultivariateStats, Plots
 
-X = CSV.read("julia/distances.csv", DataFrame)
-#data = select(X, Not(:id), Not(:categorical_var), Not(:text_var))
-data = Matrix(X)
+X = CSV.read("distances-updated.csv", DataFrame; header=1)
+# data = Matrix(X)
 
-println(data[1722, 1722])
+# for i in 1:1722, j in 1:1722
+#     if typeof(data[i, j]) <: String31
+#             data[i, j] = parse(Float64, data[i, j])
+#     end
+# end
 
-# M = fit(MDS, data; maxoutdim=2, distances=true)
-# Y = predict(M)
+data = Matrix{Float64}(data)
 
-# scatter(Y[1,:], Y[2,:], marker = :circle, linewidth = 0)
+M = fit(MDS, data; maxoutdim=2, distances=false)
+Y = predict(M)
+
+scatter(Y[1,:], Y[2,:], marker = :circle, linewidth = 0)

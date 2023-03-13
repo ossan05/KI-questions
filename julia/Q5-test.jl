@@ -4,6 +4,7 @@ iris = dataset("datasets", "iris")
 
 x = Matrix(iris[1:2:end,1:4])'
 x_labels = Vector(iris[1:2:end,5])
+println(typeof(x))
 
 m = fit(MDS, x; maxoutdim=3, distances=false)
 
