@@ -93,7 +93,7 @@ end
 function Q5_Data_dumpster_diving()
     #Text only answer. Modify the obviously incorrect answer inside the return statement below.
     #Feel free to add as much explanation as you think you need, but make sure it all gets returned as one string.
-    return "The 1722 elements make a map representing the world population. Each element is a dot on the map and correspond to a certain amount of people. I think that element 430 is a city in either Sweden or Denmark, my guess is Malmö. I found this out by using julia and a couple of packages to convert the distances into coordinates with MultivariateStats' mds algorithm, I then scatterploted the points and had element 430 another color so I could see where it was on the map."
+    return "The 1722 elements make a map representing the world population. Each element is a dot on the map and correspond to a certain amount of people. I think that element 430 is a city in either Sweden or Denmark, my guess is Malmö. I found this out by using julia and a couple of packages to convert the distances into coordinates with MultivariateStats' mds algorithm, I then scattered the points and had element 430 another color. I immediately recognized it as the world map, and because India had a lot of dots I thought it was the population I searched for a map of the world population and it matched the plot."
 end
 
 function Q6_Array_yeet(array_input_1::Vector{<:Number},array_input_2::Vector{<:Number})
